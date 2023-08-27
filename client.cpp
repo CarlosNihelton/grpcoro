@@ -30,6 +30,7 @@ struct GrpcUnaryAwaitable : std::suspend_always {
   void await_suspend(std::coroutine_handle<> h) {
     (async->*rpc)(context, request, response, [this, h](grpc::Status status) {
       result = status;
+      std::cout << "Resumed on thread ID " << std::this_thread::get_id() << '\n';
       // From now on is UB to access the this pointer.
       h.resume();
     });
@@ -58,6 +59,7 @@ concurrency::task<std::string> Client::SayHello(std::string const& user) {
   // the server and/or tweak certain RPC behaviors.
   grpc::ClientContext context;
 
+  std::cout << "Task started on thread ID " << std::this_thread::get_id() << '\n';
   // The actual RPC.
   const AsyncStub asyncStub{stub_->async()};
   grpc::Status    status = co_await asyncStub.sayHello(&context, &request, &reply);
