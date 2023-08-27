@@ -3,6 +3,8 @@
 #include <memory>
 #include <string>
 
+#include <pplawait.h>
+
 #include "helloworld.grpc.pb.h"
 
 struct Endpoint {
@@ -19,5 +21,5 @@ class Client {
  public:
   explicit Client(Endpoint transport);
 
-  std::string SayHello(std::string const& user);
+  concurrency::task<std::string> SayHello(std::string const& user);
 };
