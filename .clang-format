@@ -1,0 +1,20 @@
+BasedOnStyle: Chromium
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossComments: true
+  AlignCompound: true
+AlignConsecutiveDeclarations:
+  Enabled: true
+  AcrossComments: true
+  AlignCompound: true
+  PadOperators: true
+AlignConsecutiveMacros:
+  Enabled: true
+AllowShortBlocksOnASingleLine: Always
+BreakBeforeTernaryOperators : false
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+ColumnLimit: 139
+NamespaceIndentation: All
+QualifierAlignment: Right

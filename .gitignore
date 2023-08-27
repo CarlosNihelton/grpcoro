@@ -1,0 +1,6 @@
+.vs/
+build/
+_build/
+out/
+vcpkg_*/
+CmakeUserPresets.json

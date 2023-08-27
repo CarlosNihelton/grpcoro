@@ -1,0 +1,7 @@
+{
+  "name": "cogrpc",
+  "version":  "0.1",
+  "dependencies": [
+    "grpc"
+  ]
+}
